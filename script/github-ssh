@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# include
+. ./utils.sh
+
+ssh_dir=$HOME/.ssh
+
+# ディレクトリの移動
+cd $ssh_dir
+
+# 公開鍵の作成
+if [ ! -f id_rsa ]; then
+
+  # 入力されたemailから秘密鍵、公開鍵の生成
+  echo "Please input your email:"
+  read email
+  ssh-keygen -t rsa -C $email
+
+  # 権限の強化
+  chmod 600 id_rsa
+
+fi
+
+# 公開鍵をクリップボードにコピー
+pbcopy < $ssh_dir/id_rsa.pub
+echo "id_rsa.pub was copied to clip board"
+
+# configファイルの作成
+if [ ! -f $ssh_dir/config ]; then
+  # githubのホストを追加
+  "Host github.com
+  User git
+  port 22
+  Hostname github.com
+  IdentityFile ~/.ssh/id_rsa
+  TCPKeepAlive yes
+  IdentitiesOnly yes" >> $ssh_dir/config
+fi
+
+url="https://github.com/settings/ssh"
+openBrowser $url

@@ -1,0 +1,262 @@
+" 環境設定系
+
+" :eの補間
+set wildmode=list,full
+
+" ノーマルモードで改行
+noremap <CR> o<ESC>
+
+" 自動インデント
+set autoindent
+
+" TABの設定(表示幅4)
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
+" シンタックスハイライト
+syntax on
+
+" エンコード
+set encoding=utf8
+
+" ファイルエンコード
+set fileencoding=utf-8
+
+" スクロールする時に下が見えるようにする
+set scrolloff=5
+
+" .swapファイルを作らない
+set noswapfile
+
+" バックアップファイルを作らない
+set nowritebackup
+
+" バックアップをしない
+set nobackup
+
+" バックスペースで各種消せるようにする
+set backspace=indent,eol,start
+
+" ビープ音を消す
+set vb t_vb=
+set novisualbell
+
+" デフォルトで折り返さない
+set nowrap
+
+" OSのクリップボードを使う
+set clipboard+=unnamed
+set clipboard=unnamed
+
+" 不可視文字を表示
+set list
+
+" 行番号を表示
+set number
+
+" 右下に表示される行・列の番号を表示する
+set ruler
+
+" compatibleオプションをオフにする
+set nocompatible
+
+" 移動コマンドを使ったとき、行頭に移動しない
+set nostartofline
+
+" 対応括弧に<と>のペアを追加
+"set matchpairs& matchpairs+=<:>
+
+" 対応括弧をハイライト表示する
+set showmatch
+
+" 対応括弧の表示秒数を3秒にする
+set matchtime=3
+
+" ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
+set wrap
+
+" 入力されているテキストの最大幅を無効にする
+set textwidth=0
+
+" 不可視文字を表示
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+
+" インデントをshiftwidthの倍数に丸める
+set shiftround
+
+" 補完の際の大文字小文字の区別しない
+set infercase
+
+" 文字がない場所にもカーソルを移動できるようにする
+set virtualedit=all
+
+" 変更中のファイルでも、保存しないで他のファイルを表示
+set hidden
+
+" 新しく開く代わりにすでに開いてあるバッファを開く
+set switchbuf=useopen
+
+" 小文字の検索でも大文字も見つかるようにする
+set ignorecase
+
+" ただし大文字も含めた検索の場合はその通りに検索する
+set smartcase
+
+" インクリメンタルサーチを行う
+set incsearch
+
+" 検索結果をハイライト表示
+set hlsearch
+
+" コマンド、検索パターンを10000個まで履歴に残す
+set history=10000
+
+" マウスモード有効
+set mouse=a
+
+" xtermとscreen対応
+set ttymouse=xterm2
+
+" コマンドを画面最下部に表示する
+set showcmd
+
+" 現在の行のハイライト
+set cursorline
+ 
+" 自動コメントの除去
+autocmd FileType * setlocal formatoptions-=ro
+" w!! でスーパーユーザーとして保存（sudoが使える環境限定）
+cmap w!! w !sudo tee > /dev/null %
+
+" 入力モード中に素早くJJと入力した場合はESCとみなす
+inoremap jj <Esc>
+
+" ESCを二回押すことでハイライトを消す
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" カーソル下の単語を * で検索
+vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
+
+" 検索後にジャンプした際に検索単語を画面中央に持ってくる
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk
+
+" vを二回で行末まで選択
+vnoremap v $h
+
+" TABにて対応ペアにジャンプ
+nnoremap &lt;Tab&gt; %
+vnoremap &lt;Tab&gt; %
+
+" Ctrl + hjkl でウィンドウ間を移動
+nnoremap <C-t> <C-w>w
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-l> <C-w>l
+
+" Shift + 矢印でウィンドウサイズを変更
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
+
+" T + ? で各種設定をトグル
+nnoremap [toggle] <Nop>
+nmap T [toggle]
+nnoremap <silent> [toggle]s :setl spell!<CR>:setl spell?<CR>
+nnoremap <silent> [toggle]l :setl list!<CR>:setl list?<CR>
+nnoremap <silent> [toggle]t :setl expandtab!<CR>:setl expandtab?<CR>
+nnoremap <silent> [toggle]w :setl wrap!<CR>:setl wrap?<CR>
+ 
+" /{pattern}の入力中は「/」をタイプすると自動で「\/」が、
+" ?{pattern}の入力中は「?」をタイプすると自動で「\?」が 入力されるようになる
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+if has('unnamedplus')
+    set clipboard& clipboard+=unnamedplus
+else
+    set clipboard& clipboard+=unnamed,autoselect
+endif
+ 
+"表示行単位で行移動する
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+
+"emacsのキーバインド
+"インサートモードでも移動
+inoremap <c-h> <BS>
+inoremap <c-n> <down>
+inoremap <c-d> <delete>
+inoremap <c-p> <up>
+inoremap <c-b> <left>
+inoremap <c-f> <right>
+inoremap <c-j> <Enter>
+"inoremap <c-k> <ESC>d$i
+inoremap <expr> <C-k> "\<C-g>u".(col('.') == col('$') ? '<C-o>gJ' : '<C-o>D')
+inoremap <c-y> <ESC>pi
+inoremap <c-a> <Home>
+inoremap <c-e> <End>
+
+"画面切り替え
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+"<space>j, <space>kで画面送り
+noremap [Prefix]j <c-f><cr><cr>
+noremap [Prefix]k <c-b><cr><cr>
+ 
+" ハイライト色設定
+highlight Pmenu ctermbg=4
+highlight PmenuSel ctermbg=1
+highlight PMenuSbar ctermbg=4
+ 
+" \ + rでスクリプト実行
+nmap <Leader>r <plug>(quickrun)
+ 
+" 全角スペースのハイライトを設定
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=darkgrey
+endfunction
+ 
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    " ZenkakuSpaceをカラーファイルで設定するなら次の行は削除
+    autocmd ColorScheme       * call ZenkakuSpace()
+    " 全角スペースのハイライト指定
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
+endif
+" https://sites.google.com/site/fudist/Home/vim-nihongo-ban/-vimrc-sample
+""""""""""""""""""""""""""""""
+" 自動的に閉じ括弧を入力
+""""""""""""""""""""""""""""""
+imap { {}<LEFT>
+imap [ []<LEFT>
+imap ( ()<LEFT>
+""""""""""""""""""""""""""""""
+" ステータス行に現在のgitブランチを表示する
+" set statusline+=%{fugitive#statusline()}
+" ウインドウのタイトルバーにファイルのパス情報等を表示する
+set title
+
+" on surround
+" https://github.com/tpope/vim-surround
+set surround
+
+" ace jump
+nnoremap <Space><Space> :<C-u>action AceAction<CR>
+
+" 現在のタブ以外閉じる
+nnoremap <C-w>o :<C-u>action CloseAllEditorsButActive<CR>

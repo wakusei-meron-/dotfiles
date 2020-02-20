@@ -1,0 +1,43 @@
+[user]
+	name = ishibashi_genki
+	email = b0941015@gmail.com
+[core]
+	autoCRLF = false
+	excludesfile = ~/.gitignore_global
+	editor = /usr/bin/vim
+[color]
+	ui = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = matching
+[alias]
+	nffmerge = merge --no-ff
+	co = checkout
+	nb = checkout -b
+	st = status
+	a  = add
+	aa = add -A
+	b  = branch
+	bb = branch -b
+	c  = commit -m
+	ca = commit -am
+	f = fetch
+	df = diff
+	dfc = diff --cached
+	reb = rebase
+	rebud = rebase up-stream/develop
+	rebua = rebase up-stream/master
+	amend = commit --amend
+	ps = push
+	set-url = remote set-url
+	delete-merged-branches = "!f () { git branch --merged | egrep -v '\\*|master|develop' | xargs git branch -d; }; f"
+[merge]
+	ff = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

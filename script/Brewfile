@@ -1,10 +1,14 @@
 cask_args appdir: "/Applications"
 
+tap "aws/tap"
+
 brew "aws-shell"
 brew "gawk"
-brew "gh"
+brew "gnu-sed"
+brew "findutils"
+brew "github/gh/gh"
 brew "git"
-brew "goenv"
+brew "goenv", args:['HEAD']
 brew "jenv"
 brew "jq"
 brew "mysql-client"
@@ -16,13 +20,15 @@ brew "tree"
 brew "yarn"
 brew "zsh"
 brew "zsh-completion"
+brew "golang-migrate"
+brew "aws-sam-cli"
 
 cask "sequel-pro"
 cask "docker"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "intellij-idea"
-cask "item2"
+cask "iterm2"
 cask "karabiner-elements"
 cask "shiftit"
 cask "authy"
@@ -30,8 +36,11 @@ cask "clipy"
 cask "mysqlworkbench"
 cask "spotify"
 cask "visual-studio-code"
+cask "slack"
+cask "flux"
 
 mas "Be Focused", id: 973134470
 mas "Mini Calendar", id: 1088779979 
 mas "Keynote", id: 409183694
 mas "LINE", id: 539883307
+mas "CotEditor", id: 1024640650

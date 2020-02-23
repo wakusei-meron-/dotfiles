@@ -193,14 +193,8 @@ export PATH="$(pyenv root)/shims:$PATH"
 # aws-cli
 export PATH=~/.local/bin:$PATH
 
-# google-cloud-sdk
-export PATH=~/google-cloud-sdk/bin:$PATH
-
 # chomod
 export PATH=/bin:$PATH
-
-# julia
-export PATH=/Applications/Julia-0.6.app/Contents/Resources/julia/bin:$PATH
 
 # PostgreSQL設定（DBの置き場所）
 export PGDATA=/usr/local/var/postgres
@@ -216,21 +210,17 @@ alias scp="cat ~/.ssh/conf.d/common.conf ~/.ssh/conf.d/*.conf > ~/.ssh/config;sc
 export  PATH=~/mdh/myScript/bin:$PATH
 eval "$(rbenv init -)"
 
+# my bin
+export  PATH=~/bin:$PATH
+
+# mysql
+export PATH=/usr/local/opt/mysql-client/bin/:$PATH
+
 # goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
 
-# direnv
-eval "$(direnv hook zsh)"
-
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 alias rust="evcxr"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/a13887/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/a13887/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/a13887/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a13887/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-PATH=/usr/local/texlive/2018/bin/x86_64-darwin:/Users/a13887/.rbenv/shims:/Users/a13887/mdh/myScript/bin:/Applications/flyway-5.1.1:/Applications/Julia-0.6.app/Contents/Resources/julia/bin:/bin:/Users/a13887/.local/bin:/Users/a13887/.pyenv/shims:/Users/a13887/work/bin:/Users/a13887/.jenv/shims:/Users/a13887/.jenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/Applications/Wireshark.app/Contents/MacOS:$PATH

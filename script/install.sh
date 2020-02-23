@@ -9,10 +9,15 @@ if [ ! -d $HOME$DOTFILES_DIRNAME ]; then
   git clone https://github.com/wakusei-meron-/dotfiles.git
   cd $DOTFILES_DIRNAME
 
-  # create symboric link
-  for f in .??*; do # . と ..を除外
-    ln -siv $HOME/${DOTFILES_DIRNAME}/${f} $HOME/${f}
-  done
+  # install brew
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  
+  # install brew package
+  brew bundle
+
+  # rust
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 else
   echo "Dotfiles is already installed"
 fi

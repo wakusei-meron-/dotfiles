@@ -61,3 +61,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write -g com.apple.mouse.tapBehavior -int 1
 # マウスの速度を速める
 defaults write -g com.apple.trackpad.scaling 5
+
+# screenshotsをDesktopからscreenshotsフォルダに変更
+mkdir ~/screenshots
+defaults write com.apple.screencapture location ~/screenshots

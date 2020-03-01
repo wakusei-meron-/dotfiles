@@ -5,13 +5,13 @@
 - clean: ['~']
 
 - link:
-    ~/.profile: profile
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-    ~/.ideavimrc: ideavimrc
-    ~/.vimrc: vimrc
-    ~/.inputrc: inputrc
-    ~/.bash_profile: bash_profile
-    ~/.gitconfig: gitconfig
+    ~/.profile: dotfiles/profile
+    ~/.zprofile: dotfiles/zprofile
+    ~/.zshrc: dotfiles/zshrc
+    ~/.ideavimrc: dotfiles/ideavimrc
+    ~/.vimrc: dotfiles/vimrc
+    ~/.inputrc: dotfiles/inputrc
+    ~/.bash_profile: dotfiles/bash_profile
+    ~/.gitconfig: dotfiles/gitconfig
 
 

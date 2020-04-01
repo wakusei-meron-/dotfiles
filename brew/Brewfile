@@ -22,6 +22,7 @@ brew "zsh"
 brew "zsh-completion"
 brew "golang-migrate"
 brew "aws-sam-cli"
+brew "jo"
 
 cask "sequel-pro"
 cask "docker"
@@ -38,6 +39,7 @@ cask "spotify"
 cask "visual-studio-code"
 cask "slack"
 cask "flux"
+cask "authy"
 
 mas "Be Focused", id: 973134470
 mas "Mini Calendar", id: 1088779979 

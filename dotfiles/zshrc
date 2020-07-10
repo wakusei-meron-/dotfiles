@@ -178,6 +178,9 @@ case ${OSTYPE} in
         ;;
 esac
 
+# import path
+export PATH=/usr/local/bin:$PATH
+
 # vim:set ft=zsh:
 export PATH="$HOME/.jenv/shims:$PATH"
 eval "$(jenv init -)"
@@ -211,7 +214,7 @@ export  PATH=~/mdh/myScript/bin:$PATH
 eval "$(rbenv init -)"
 
 # my bin
-export  PATH=~/bin:$PATH
+export PATH=~/bin:$PATH
 
 # mysql
 export PATH=/usr/local/opt/mysql-client/bin/:$PATH
@@ -225,3 +228,5 @@ export PATH="$GOPATH/bin:$PATH"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 alias rust="evcxr"
+# direnv
+eval "$(direnv hook zsh)"

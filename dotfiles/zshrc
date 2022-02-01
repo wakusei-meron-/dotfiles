@@ -186,15 +186,15 @@ export PATH="$HOME/.jenv/shims:$PATH"
 eval "$(jenv init -)"
 
 # setup $GOPATH
-export GOPATH=$HOME/work
+# export GOPATH=$HOME/work
 
-export PATH="$GOPATH/bin:$PATH"
+# export PATH="$GOPATH/bin:$PATH"
 
 # pyenv
 export PATH="$(pyenv root)/shims:$PATH"
 
 # aws-cli
-export PATH=~/.local/bin:$PATH
+export PATH=/usr/local/aws-cli:$PATH
 
 # chomod
 export PATH=/bin:$PATH
